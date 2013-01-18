@@ -1,0 +1,9 @@
+Program Name:	What Did You Say?
+Revision: 1.0
+Developer: Juan Trinidad Jr
+Date: 01/16/2013
+Location: Norcross, Georgia, USA
+
+This application prompts users to push a button.  Pushing the button triggers the voice recorder, at which time the user can say something (vocally).  The results of the recorded input are displayed in a List view, ordered by the confidence in accuracy.
+
+This application was designed with the SimpleMATH application in mind.  The plan will be to merge the two applications to create a simple addition mathematics game that provides users the convenience of voice input.

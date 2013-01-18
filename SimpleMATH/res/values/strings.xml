@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="hello">Hello World, SimpleMATHActivity!</string>
+    <string name="app_name">SimpleMATH</string>
+    <string name="math_question">What is: %1$d</string>
+    <string name="addition">+</string>
+    <string name="subtraction">=</string>
+    <string name="equals">=</string>
+    <string name="correct">You are right! :)</string>
+    <string name="incorrect">You fucking suck! :(</string>
+    <string name="number1" ></string>
+    <string name="strNum1" >strNum1</string>
+    <string name="testing" >Es un test!</string>
+    
+    <!--string name="number2">@number2</string-->
+
+</resources>

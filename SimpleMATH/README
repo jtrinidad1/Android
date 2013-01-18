@@ -1,0 +1,9 @@
+Program Name:	SimpleMATH
+Revision: 1.0 (***CAUTION: DOES CONTAIN LANGUAGE INAPPROPRIATE FOR MINORS***)
+Developer: Juan Trinidad Jr
+Date: 01/16/2013
+Location: Norcross, Georgia, USA
+
+This application is a simple addition game generates two randomly integers, and displays them as an addition problem in a TextView.  It also displays a message that varies depending on the value of the sum of the two integers.
+
+The plan is to have this integrate with my other project "What Did You Say?", which is a voice input listener.  This will allow users to answer the addition problem using voice input.

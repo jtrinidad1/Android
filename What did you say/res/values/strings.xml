@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="instruction1">Click the button and SAY SOMETHING!</string>
+    <string name="app_name">What did you say?</string>
+    <string name="buttonString1">Do it!</string>
+    <string name="response1"><b>Did you say:</b></string>
+
+    
+
+</resources>
