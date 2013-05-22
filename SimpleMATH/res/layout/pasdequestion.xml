@@ -5,11 +5,34 @@ android:orientation="vertical">
    
 <TextView        android:layout_width="fill_parent"        
 android:layout_height="wrap_content"        
-android:paddingBottom="4dip"        
-android:id="@+id/sma" />
+android:paddingBottom="4dip" 
+android:id="@+id/sma"     
+/>"
 <TextView android:layout_width="fill_parent"        
 android:layout_height="wrap_content"        
 android:paddingBottom="16dip"        
 android:id="@+id/sma1" />
 "
+<Button android:id="@+id/speakButton"        
+android:layout_width="fill_parent"        
+android:onClick="speakButtonClicked"        
+android:layout_height="wrap_content"        
+android:text="@string/buttonString1" />  
+
+<TextView android:layout_width="fill_parent"        
+android:layout_height="wrap_content"        
+android:paddingBottom="16dip"        
+android:id="@+id/sma2" />
+
+<TextView android:layout_width="fill_parent"        
+android:layout_height="wrap_content"        
+android:paddingBottom="16dip"        
+android:id="@+id/sma3" />
+
+<Button android:id="@+id/newQuestionButton"        
+android:layout_width="fill_parent"        
+android:onClick="newQuestionButtonClicked"        
+android:layout_height="wrap_content"        
+android:text="@string/newQuestionString1" /> 
+
 </LinearLayout>

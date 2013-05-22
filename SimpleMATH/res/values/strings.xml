@@ -9,9 +9,9 @@
     <string name="equals">=</string>
     <string name="correct">You are right! :)</string>
     <string name="incorrect">You fucking suck! :(</string>
-    <string name="number1" ></string>
-    <string name="strNum1" >strNum1</string>
     <string name="testing" >Es un test!</string>
+    <string name="buttonString1">Answer the question!</string>
+    <string name="newQuestionString1">Want a new question?</string>
     
     <!--string name="number2">@number2</string-->
 
