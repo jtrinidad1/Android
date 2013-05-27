@@ -51,6 +51,7 @@ public class SimpleMATHActivity extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Intent intent =  getIntent();
         
         setContentView(R.layout.pasdequestion);
         shuffleBitches();

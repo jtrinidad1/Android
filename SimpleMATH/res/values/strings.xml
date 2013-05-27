@@ -9,10 +9,15 @@
     <string name="equals">=</string>
     <string name="correct">You are right! :)</string>
     <string name="incorrect">You fucking suck! :(</string>
-    <string name="testing" >Es un test!</string>
+    <string name="testing">Es un test!</string>
     <string name="buttonString1">Answer the question!</string>
     <string name="newQuestionString1">Want a new question?</string>
-    
-    <!--string name="number2">@number2</string-->
+    <string name="start1">Start</string>
+
+    <!-- string name="number2">@number2</string -->
+
+    <string name="title_activity_main1">SimpleMATH</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
 
 </resources>
