@@ -13,6 +13,8 @@
     <string name="buttonString1">Answer the question!</string>
     <string name="newQuestionString1">Want a new question?</string>
     <string name="start1">Start</string>
+    <string name="start2">Settings</string>
+    <string name="start3">About</string>
 
     <!-- string name="number2">@number2</string -->
 
