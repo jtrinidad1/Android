@@ -15,11 +15,13 @@
     <string name="start1">Start</string>
     <string name="start2">Settings</string>
     <string name="start3">About</string>
+    <string name="about1"><i>jtrinidadj@gmail.com</i></string>
 
     <!-- string name="number2">@number2</string -->
 
     <string name="title_activity_main1">SimpleMATH</string>
     <string name="action_settings">Settings</string>
-    <string name="hello_world">Hello world!</string>
+    <string name="hello_world">Hello world!  I created simpleMATH in hopes of expanding my software development toolbelt.  Thanks for testing this out, and let me know if you have any questions!</string>
+    <string name="title_activity_about">About SimpleMATH</string>
 
 </resources>

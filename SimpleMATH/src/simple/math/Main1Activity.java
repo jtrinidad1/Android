@@ -22,13 +22,25 @@ public class Main1Activity extends Activity {
 		return true;
 	}
 	
-	public void onClick(View v){
+	public void onClick1(View v){
 		startSimpleMATHActivity();
 	}
 	
-    /**     * Fire an intent to start the voice recognition activity.     */    
+	public void onClick2(View v){
+		startSimpleMATHActivity();
+	}
+	
+	public void onClick3(View v){
+		startAboutActivity();
+	}
+	  
     public void startSimpleMATHActivity()    {      
     Intent i = new Intent(this,SimpleMATHActivity.class);        
     startActivity(i);
-
-}}
+    }	
+    
+    public void startAboutActivity()    {      
+    Intent i = new Intent(this,AboutActivity.class);        
+    startActivity(i);
+    }	
+}

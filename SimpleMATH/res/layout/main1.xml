@@ -7,18 +7,18 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".Main1Activity" 
-    android:background="#000000">
+    android:background="#EDEBF6">
     
 	<RelativeLayout
     android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="fill_parent"
     android:layout_marginTop="15dip"
     android:layout_marginLeft="15dip"
     android:layout_marginRight="15dip"
     android:layout_marginBottom="20dip"
     android:gravity="center"
     android:paddingTop="20dip" 
-    android:background="#360000"  
+    android:background="#190B77"  
     >
     
     <TextView
@@ -26,26 +26,29 @@
         android:layout_height="wrap_content"
         android:id="@+id/start1"
         android:text="@string/start1"
+        android:textSize="24sp"
         android:clickable="true"
-        android:onClick="onClick" />
+        android:onClick="onClick1" />
     
      <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/start2" 
+        android:textSize="24sp"
         android:layout_below="@+id/start1"
         android:id="@+id/start2"
         android:clickable="true"
-        android:onClick="onClick" />
+        android:onClick="onClick2" />
      
       <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/start3"
+        android:textSize="24sp"
         android:layout_below="@+id/start2"
         android:id="@+id/start3"
         android:clickable="true"
-        android:onClick="onClick" />
+        android:onClick="onClick3" />
       
 	</RelativeLayout>
     </RelativeLayout>
