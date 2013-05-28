@@ -22,6 +22,7 @@ android:background="#190B77">
 <TextView        android:layout_width="fill_parent"        
 android:layout_height="wrap_content"        
 android:paddingBottom="4dip" 
+android:textSize="24sp"
 android:id="@+id/sma"     
 />"
 <TextView android:layout_width="fill_parent"        
@@ -37,12 +38,14 @@ android:text="@string/buttonString1" />
 
 <TextView android:layout_width="fill_parent"        
 android:layout_height="wrap_content"        
-android:paddingBottom="16dip"        
+android:paddingBottom="16dip"
+android:textSize="24sp"        
 android:id="@+id/sma2" />
 
 <TextView android:layout_width="fill_parent"        
 android:layout_height="wrap_content"        
-android:paddingBottom="16dip"        
+android:paddingBottom="16dip" 
+android:textSize="24sp"       
 android:id="@+id/sma3" />
 
 <Button android:id="@+id/newQuestionButton"        

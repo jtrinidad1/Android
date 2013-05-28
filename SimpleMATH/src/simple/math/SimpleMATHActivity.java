@@ -39,6 +39,7 @@ public class SimpleMATHActivity extends Activity {
 		
 	/**Prepare for an array!  Hold the approval code!*/
 	ArrayList<Integer> numeros = new ArrayList<Integer>();
+	ArrayList<Integer> numeros1 = new ArrayList<Integer>();
 	private static final int REQUEST_CODE = 1234;
 	
     /**Let's go.*/
@@ -50,6 +51,10 @@ public class SimpleMATHActivity extends Activity {
         setContentView(R.layout.pasdequestion);
         shuffleBitches();
         askQuestion();
+        //askAdditionQuestion();
+        //askSubtractionQuestion();
+        //askMultiplicationQuestion();
+        //askDivisionQuestion();
         
         //Let's start some MADNESS
         Button speakButton = (Button) findViewById(R.id.speakButton);
@@ -73,18 +78,82 @@ public class SimpleMATHActivity extends Activity {
     		TextView resultResponse = (TextView) findViewById(R.id.sma3);
        	   	resultResponse.setText("");
     		askQuestion();
+       	   	//askDivisionQuestion();
     		
     	   	 View newQuestionView = (View) findViewById(R.id.newQuestionButton);
     	   	 newQuestionView.setVisibility(View.GONE);
     	}
     
-	    private void askQuestion() {
+	    private void askAdditionQuestion() {
 	        TextView tv = (TextView) findViewById(R.id.sma);
 	        tv.setText("What is " + number1 + " + " + number2 + " ?" );
+	        number3 = number1 + number2;
 	        //TextView resultword1 = (TextView) findViewById(R.id.sma1);
 	        //resultword1.setText(Integer.toString(number3));
 		
 	}
+	    
+	    private void askSubtractionQuestion() {
+	        TextView tv = (TextView) findViewById(R.id.sma);
+	        tv.setText("What is " + number1 + " - " + number2 + " ?" );
+	        number3 = number1 - number2;
+	        //TextView resultword1 = (TextView) findViewById(R.id.sma1);
+	        //resultword1.setText(Integer.toString(number3));
+	}
+	    
+	    private void askMultiplicationQuestion() {
+	        TextView tv = (TextView) findViewById(R.id.sma);
+	        tv.setText("What is " + number1 + " x " + number2 + " ?" );
+	        number3 = number1 * number2;
+	        //TextView resultword1 = (TextView) findViewById(R.id.sma1);
+	        //resultword1.setText(Integer.toString(number3));
+	}
+	    
+	    private void askDivisionQuestion() {
+	    	
+	    	if(number2 == 0){
+	    		number2 = 1;
+	    	}
+	    	if(checkDivision()){
+	    		number3 = number1 / number2;
+		        TextView tv = (TextView) findViewById(R.id.sma);
+		        tv.setText("What is " + number1 + " / " + number2 + " ?" );
+	    	}
+	    	else {
+	    		shuffleBitches();
+	    		askDivisionQuestion();
+	    	}
+	}
+
+		private boolean checkDivision(){
+	    	if(number1 % number2 == 0) {
+	    	return true;
+	    	}
+	    	else {return false;
+	    		}
+	    	}
+	    
+		private void askQuestion(){
+			int num1;
+	    	for(int i=1;i<=4;i++)
+	        {
+	            numeros1.add(i);
+	        }
+	        
+	        //Yo Mama wants them bitches shuffled.  Do it, then grab the first and second number.  Assign them bitches!
+	        Collections.shuffle(numeros1);
+	        num1 = numeros1.get(0);
+	        switch (num1) {
+	        case 1: askAdditionQuestion();
+	        		break;
+	        case 2: askSubtractionQuestion();
+	        		break;		
+	        case 3: askMultiplicationQuestion();
+    				break;
+	        case 4: askDivisionQuestion();
+	        		break;
+	        }
+	    }
 
 		private void shuffleBitches(){
 	    	int num1;
@@ -96,15 +165,12 @@ public class SimpleMATHActivity extends Activity {
 	            numeros.add(i);
 	        }
 	        
-	        //Yo Mama wants them bitches shuffled.  Do it, then grab the first and second number.  Add/Assign them bitches!
+	        //Yo Mama wants them bitches shuffled.  Do it, then grab the first and second number.  Assign them bitches!
 	        Collections.shuffle(numeros);
 	        num1 = numeros.get(0);
 	        num2 = numeros.get(1);
-	        num3 = num1 + num2;
-	        
-	        number1 = num1;
+            number1 = num1;
 	        number2 = num2;
-	        number3 = num3;
 	    }
 
 		/**     * Handle the action of the button being clicked     */    
@@ -162,7 +228,8 @@ public class SimpleMATHActivity extends Activity {
 		   		Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
 		   		v.vibrate(pattern2, -1);
 		   	   	resultResponse.setText("You're incorrect. :(");
-		   	   	
+		   	 //Button speakButton = (Button) findViewById(R.id.speakButton);
+		   	 //speakButton.setText("Try Again?");
 		   	 View newQuestionView = (View) findViewById(R.id.newQuestionButton);
 		   	 newQuestionView.setVisibility(View.VISIBLE);
 		   	 //resultword.setText(matches.get(0).toString());
