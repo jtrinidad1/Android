@@ -33,15 +33,9 @@ public class SimpleMATHActivity extends Activity {
 	int medium_gap = 500;
 	int long_gap = 1000;
 	long [] pattern1 = {
-			0, dot, short_gap, dot, short_gap, dot//, medium_gap,
-			/*dash, short_gap, dash, short_gap, dash,
-			medium_gap,
-			dot, short_gap, dot, short_gap, dot,
-			long_gap*/
-	};
+			0, dot, short_gap, dot, short_gap, dot	};
 	long [] pattern2 = {
-			0, dots//, short_gap, dots, short_gap, dots, medium_gap
-			};
+			0, dots	};
 		
 	/**Prepare for an array!  Hold the approval code!*/
 	ArrayList<Integer> numeros = new ArrayList<Integer>();

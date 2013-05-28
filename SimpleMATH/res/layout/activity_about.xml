@@ -13,17 +13,15 @@
     <RelativeLayout
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:layout_marginTop="15dip"
-    android:layout_marginLeft="15dip"
-    android:layout_marginRight="15dip"
-    android:layout_marginBottom="20dip"
+    android:layout_marginTop="10dip"
+    android:layout_marginLeft="10dip"
+    android:layout_marginRight="10dip"
+    android:layout_marginBottom="15dip"
     android:background="#190B77"  
     >
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/hello_world"
- 
         android:id="@+id/about" />
 
         <TextView
