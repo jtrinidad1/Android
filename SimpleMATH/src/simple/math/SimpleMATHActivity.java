@@ -1,3 +1,13 @@
+/*Title: SimpleMATHActivity.java
+ *Author: Juan Trinidad Jr
+ *
+ *This activity generates two random integers and prepares them for addition.  At random, the mathematics operator is
+ *chosen, and the question is prompted.  The user is presented with a series of buttons allowing them to answer the
+ *question using voice-input, or repeat the randomization process to prompt a new question. 
+ * 
+ * This is the Meat and Potatoes of this application.
+ * */
+
 package simple.math;
 
 import java.util.ArrayList;
@@ -21,21 +31,13 @@ import android.widget.TextView;
 
 
 public class SimpleMATHActivity extends Activity {
-	/**Variables - 3 is the sum of 1 and 2.*/
-	int number1 = 0;
-	int number2 = 0;
-	int number3 = 0;
+	//SimpleMATHActivity Variables//
 	
-	/**See if you can make it vibrate!*/
-	int dot = 100;
-	int dots = 500;
-	int short_gap = 100;
-	int medium_gap = 500;
-	int long_gap = 1000;
-	long [] pattern1 = {
-			0, dot, short_gap, dot, short_gap, dot	};
-	long [] pattern2 = {
-			0, dots	};
+	int	number1;	//First integer
+	int	number2;	//Second integer
+	int	number3;	//This will become the appropriate answer
+	
+
 		
 	/**Prepare for an array!  Hold the approval code!*/
 	ArrayList<Integer> numeros = new ArrayList<Integer>();
@@ -156,10 +158,7 @@ public class SimpleMATHActivity extends Activity {
 	    }
 
 		private void shuffleBitches(){
-	    	int num1;
-	    	int num2;
-	    	int num3;
-	    	
+			//Add all integers between zero and ten into array
 	    	for(int i=0;i<=10;i++)
 	        {
 	            numeros.add(i);
@@ -167,10 +166,12 @@ public class SimpleMATHActivity extends Activity {
 	        
 	        //Yo Mama wants them bitches shuffled.  Do it, then grab the first and second number.  Assign them bitches!
 	        Collections.shuffle(numeros);
-	        num1 = numeros.get(0);
+	        /*num1 = numeros.get(0);
 	        num2 = numeros.get(1);
             number1 = num1;
-	        number2 = num2;
+	        number2 = num2;*/
+	        number1 = numeros.get(0);
+	        number2 = numeros.get(1);
 	    }
 
 		/**     * Handle the action of the button being clicked     */    
@@ -199,18 +200,23 @@ public class SimpleMATHActivity extends Activity {
         RecognizerIntent.EXTRA_RESULTS);
    	 	TextView resultword = (TextView) findViewById(R.id.sma2);
    	 	resultword.setText(matches.get(0).toString());
-   	 	TextView resultword1 = (TextView) findViewById(R.id.sma1);
    	 	String result0 = matches.get(0).toString().trim();
    	 	String result1 = Integer.toString(number3).trim();
-   	 	
    	 	results(result0, result1);
-        super.onActivityResult(requestCode, resultCode, data);
-        
-        }//END THE MADNESS
-        
-}
+        super.onActivityResult(requestCode, resultCode, data);    
+        	}//END THE MADNESS     
+        }	
 
 		private void results(String res0, String res1) {
+			/**See if you can make it vibrate!*/
+			int	dot = 100;
+			int	dots = 500;
+			int	short_gap = 100;
+
+			long [] pattern1 = {
+					0, dot, short_gap, dot, short_gap, dot	};
+			long [] pattern2 = {
+					0, dots	};
 			//Compare
 		   	if((res0 == res1) || (res0.equals(res1))){
 		   	//if((result1 == result0) || (result0.contains(result1))){
