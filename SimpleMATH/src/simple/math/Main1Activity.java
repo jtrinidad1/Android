@@ -1,7 +1,10 @@
 package simple.math;
 
+import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.view.Menu;
 import android.view.View;
@@ -12,6 +15,15 @@ public class Main1Activity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main1);
+		
+	       //.setNegativeButton("Err, no", new DialogInterface.OnClickListener() {
+		           //public void onClick(DialogInterface dialog, int id) {
+		             //   dialog.cancel();
+		           //}
+	
+   //});
+
+			
 	}
 
 	@Override
@@ -22,7 +34,29 @@ public class Main1Activity extends Activity {
 	}
 	
 	public void onClick1(View v){
-		startSimpleMATHActivity();
+		boolean mobileNwInfo = false;  
+		ConnectivityManager conxMgr = (ConnectivityManager) getSystemService(CONNECTIVITY_SERVICE);  
+		try { mobileNwInfo = conxMgr.getActiveNetworkInfo().isConnected(); }  
+		catch (NullPointerException e) { mobileNwInfo = false; }  
+		if ( mobileNwInfo == true ) {
+		  // Your code goes here...
+			startSimpleMATHActivity();
+		}
+		else {		
+			AlertDialog.Builder builder = new AlertDialog.Builder(this);
+			builder.setMessage("Open Wireless & Network settings?")
+			       .setCancelable(false).setTitle("Network Error")
+			       .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+			           public void onClick(DialogInterface dialog, int id) {
+			                // fire an intent go to your next activity
+			        	   //startSimpleMATHActivity();
+			        	   dialog.cancel();
+			           }
+			       });
+			AlertDialog alert = builder.create();
+		
+		alert.show();}
+		//startSimpleMATHActivity();
 	}
 	
 	public void onClick2(View v){
