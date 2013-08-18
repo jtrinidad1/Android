@@ -14,7 +14,8 @@
         android:label="@string/app_name" >
         <activity
             android:name="simple.math.Main1Activity"
-            android:label="@string/title_activity_main1" >
+            android:label="@string/title_activity_main1"
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -23,19 +24,23 @@
         </activity>
         <activity
             android:name="simple.math.SimpleMATHActivity"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name="simple.math.AboutActivity"
-            android:label="@string/title_activity_about" >
+            android:label="@string/title_activity_about"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name="simple.math.SettingsActivity"
-            android:label="@string/title_activity_settings" >
+            android:label="@string/title_activity_settings"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name="simple.math.MyPreferencesFragment"
-            android:label="@string/title_activity_my_preferences_fragment" >
+            android:label="@string/title_activity_my_preferences_fragment"
+            android:screenOrientation="portrait" >
         </activity>
     </application>
 
