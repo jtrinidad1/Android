@@ -24,7 +24,7 @@ android:layout_height="wrap_content"
 android:paddingBottom="4dip" 
 android:textSize="24sp"
 android:id="@+id/sma"     
-/>"
+/>
 <TextView android:layout_width="fill_parent"        
 android:layout_height="wrap_content"        
 android:paddingBottom="16dip"        

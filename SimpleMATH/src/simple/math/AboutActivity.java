@@ -15,7 +15,7 @@ public class AboutActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_about);
 		TextView t = (TextView) findViewById(R.id.about);
-		t.setText(Html.fromHtml("<p>Hello world!</p><p>&nbsp;&nbsp;&nbsp;&nbsp;We created simpleMATH in hopes of expanding out software development toolbelts.  Thanks for testing this out, and let us know if you have any questions!</p></br>"));
+		t.setText(Html.fromHtml("<p>Hello world!</p><p>&nbsp;&nbsp;&nbsp;&nbsp;I created simpleMATH in hopes of expanding my software development toolbelt.  Thanks for testing this out, and let us know if you have any questions or recommendations!</p></br>"));
 	}
 
 	/*@Override

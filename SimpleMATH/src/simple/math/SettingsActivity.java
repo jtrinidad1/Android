@@ -4,10 +4,15 @@ import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceFragment;
+import android.preference.PreferenceManager;
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.app.Activity;
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.view.Gravity;
 import android.view.Menu;
+import android.widget.Toast;
 
 public class SettingsActivity extends PreferenceActivity {
 
@@ -52,14 +57,24 @@ public class SettingsActivity extends PreferenceActivity {
                 .replace(android.R.id.content, new MyPreferenceFragment ())
                 .commit();
     }
-		//addPreferencesFromResource(R.xml.settings);
-	//}
+    
+    public void onBackPressed() {
+		SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
+		Boolean add = sp.getBoolean("add", true);
+		Boolean subtract = sp.getBoolean("subtract", true);
+		Boolean multiply = sp.getBoolean("multiply", true);
+		Boolean divide = sp.getBoolean("divide", true);
+		if (!add && !subtract && !multiply && !divide)
+		{
+			Context context = this;
+			CharSequence text = "You must select at least one operator.";
+			int duration = Toast.LENGTH_SHORT;
+			Toast toast = Toast.makeText(context, text, duration);
+			toast.setGravity(Gravity.BOTTOM, 0, 3);
+			toast.show();
+		}
+		else{finish();}
+		}
 
-	/*@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.settings, menu);
-		return true;
-	}*/
+
 }
-

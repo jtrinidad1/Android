@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
-     android:title="Settings"
-     android:screenOrientation="portrait">
+     android:title="Settings">
     
     <CheckBoxPreference
         android:title="Addition (+)"
@@ -28,7 +27,7 @@
     </CheckBoxPreference>
     
     <CheckBoxPreference android:summary="Allow negative answers?"
-        android:title="Negatives?"
+        android:title="Negatives"
         android:key="negate"
         android:defaultValue="true">
     </CheckBoxPreference>

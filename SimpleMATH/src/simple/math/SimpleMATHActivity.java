@@ -1,7 +1,7 @@
 /*Title: SimpleMATHActivity.java
  *Author: Juan Trinidad Jr
  *
- *This activity generates two random integers and prepares them for addition.  At random, the mathematics operator is
+ *This activity generates two random integers between 0 and 10 (inclusive).  At random, the mathematics operator is
  *chosen, and the question is prompted.  The user is presented with a series of buttons allowing them to answer the
  *question using voice-input, or repeat the randomization process to prompt a new question. 
  * 
@@ -11,8 +11,6 @@
 package simple.math;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
@@ -43,15 +41,15 @@ public class SimpleMATHActivity extends Activity {
 
 		
 	/**Prepare for an array!  Hold the approval code!*/
-	ArrayList<Integer> numeros = new ArrayList<Integer>();
-	ArrayList<Integer> numeros1 = new ArrayList<Integer>();
+	//ArrayList<Integer> numeros = new ArrayList<Integer>();
+	//ArrayList<Integer> numeros1 = new ArrayList<Integer>();
 	private static final int REQUEST_CODE = 1234;
 	
     /**Let's go.*/
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Intent intent =  getIntent();
+        //Intent intent =  getIntent();
         
         setContentView(R.layout.pasdequestion);
         shuffleBitches();
@@ -63,7 +61,7 @@ public class SimpleMATHActivity extends Activity {
         
         //Let's start some MADNESS
         Button speakButton = (Button) findViewById(R.id.speakButton);
-        Button newQuestionButton = (Button) findViewById(R.id.newQuestionButton);
+        //Button newQuestionButton = (Button) findViewById(R.id.newQuestionButton);
         View newQuestionView = (View) findViewById(R.id.newQuestionButton);
        	 newQuestionView.setVisibility(View.GONE);
        	//newQuestionView.setVisibility(View.VISIBLE);
@@ -74,7 +72,8 @@ public class SimpleMATHActivity extends Activity {
         new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH), 0);        
         if (activities.size() == 0)        {            
         speakButton.setEnabled(false);            
-        speakButton.setText("Recognizer not present");        }}
+        speakButton.setText("Recognizer not present");        }
+        }
     
     	private void newQuestion() {
     		shuffleBitches();
@@ -99,6 +98,17 @@ public class SimpleMATHActivity extends Activity {
 	}
 	    
 	    private void askSubtractionQuestion() {
+			SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
+			Boolean negate = sp.getBoolean("negate", true);
+	    	if (!negate && number2 > number1)
+	    	{
+	    		if (number1 == 0) {number2 = 0;}
+	    		else
+	    		{
+	    		Random shuffle = new Random();
+	    		number2 = shuffle.nextInt(number1);
+	    		}
+	    	}
 	        TextView tv = (TextView) findViewById(R.id.sma);
 	        tv.setText("What is " + number1 + " - " + number2 + " ?" );
 	        number3 = number1 - number2;
@@ -144,7 +154,7 @@ public class SimpleMATHActivity extends Activity {
 			Boolean subtract = sp.getBoolean("subtract", true);
 			Boolean multiply = sp.getBoolean("multiply", true);
 			Boolean divide = sp.getBoolean("divide", true);
-			Boolean negate = sp.getBoolean("negate", true);
+			//Boolean negate = sp.getBoolean("negate", true);
 			
 	    	/*for(int i=1;i<=4;i++)
 	        {
@@ -218,15 +228,24 @@ public class SimpleMATHActivity extends Activity {
         ArrayList<String> matches = data.getStringArrayListExtra( 		 
         RecognizerIntent.EXTRA_RESULTS);
    	 	TextView resultword = (TextView) findViewById(R.id.sma2);
-   	 	resultword.setText(matches.get(0).toString());
-   	 	String result0 = matches.get(0).toString().trim();
-   	 	String result1 = Integer.toString(number3).trim();
-   	 	results(result0, result1);
+   	 	try
+   	 	{
+	   	 	int result0 = Integer.parseInt(matches.get(0).toString().trim());
+	   	 	resultword.setText(matches.get(0).toString());
+	   	 	results(result0, number3);
+   	 	}
+   	 	catch (NumberFormatException nfe)
+   	 	{
+   	 	resultword.setText("Try again!");
+   	 	}
+   	 	//String result0 = matches.get(0).toString().trim();
+   	 	//String result1 = Integer.toString(number3).trim();
+   	 	//int result00;
         super.onActivityResult(requestCode, resultCode, data);    
         	}//END THE MADNESS     
         }	
 
-		private void results(String res0, String res1) {
+		private void results(int res0, int res1) {
 			/**See if you can make it vibrate!*/
 			int	dot = 100;
 			int	dots = 500;
@@ -237,7 +256,8 @@ public class SimpleMATHActivity extends Activity {
 			long [] pattern2 = {
 					0, dots	};
 			//Compare
-		   	if((res0 == res1) || (res0.equals(res1))){
+		   	if((res0 == res1))
+		   	{
 		   	//if((result1 == result0) || (result0.contains(result1))){
 		   		TextView resultResponse = (TextView) findViewById(R.id.sma3);
 		   		Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
@@ -245,21 +265,20 @@ public class SimpleMATHActivity extends Activity {
 		   	   	resultResponse.setText("You're right!");
 		   	   	
 		   	 View newQuestionView = (View) findViewById(R.id.newQuestionButton);
-		   	 newQuestionView.setVisibility(View.VISIBLE);
-		   	 
+		   	 newQuestionView.setVisibility(View.VISIBLE);   	 
 		   	}
-		   	else{
+		   	else
+		   	{
 		   		TextView resultResponse = (TextView) findViewById(R.id.sma3);
 		   		Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
 		   		v.vibrate(pattern2, -1);
 		   	   	resultResponse.setText("You're incorrect. :(");
-		   	 //Button speakButton = (Button) findViewById(R.id.speakButton);
-		   	 //speakButton.setText("Try Again?");
-		   	 View newQuestionView = (View) findViewById(R.id.newQuestionButton);
-		   	 newQuestionView.setVisibility(View.VISIBLE);
-		   	 //resultword.setText(matches.get(0).toString());
-		       // if (number1 = 3)
-		   	 
-		        } 
-			
-		}}
+			   	//Button speakButton = (Button) findViewById(R.id.speakButton);
+			   	//speakButton.setText("Try Again?");
+			   	View newQuestionView = (View) findViewById(R.id.newQuestionButton);
+			   	newQuestionView.setVisibility(View.VISIBLE);
+			   	//resultword.setText(matches.get(0).toString());
+			    // if (number1 = 3)		   	 
+	        } 
+		}
+}
