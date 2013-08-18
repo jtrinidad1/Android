@@ -29,7 +29,7 @@ public class AboutActivity extends Activity {
 	Intent intent = new Intent(Intent.ACTION_SEND);
 	//intent.setType("text/plain"); // send email as plain text
 	intent.setType("message/rfc822");//send email as email - cause that's what I said.  
-	intent.putExtra(Intent.EXTRA_EMAIL, new String[] { "jtrinidadj@gmail.com;" });
+	intent.putExtra(Intent.EXTRA_EMAIL, new String[] { "simplemathdev@gmail.com;" });
 	intent.putExtra(Intent.EXTRA_SUBJECT, "Excited simpleMATH User!");
 	//intent.putExtra(Intent.EXTRA_TEXT, "mail body");
 	startActivity(Intent.createChooser(intent, ""));

@@ -29,6 +29,14 @@
             android:name="simple.math.AboutActivity"
             android:label="@string/title_activity_about" >
         </activity>
+        <activity
+            android:name="simple.math.SettingsActivity"
+            android:label="@string/title_activity_settings" >
+        </activity>
+        <activity
+            android:name="simple.math.MyPreferencesFragment"
+            android:label="@string/title_activity_my_preferences_fragment" >
+        </activity>
     </application>
 
 </manifest>

@@ -7,7 +7,9 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
+import android.widget.PopupMenu;
 
 public class Main1Activity extends Activity {
 
@@ -44,7 +46,7 @@ public class Main1Activity extends Activity {
 		}
 		else {		
 			AlertDialog.Builder builder = new AlertDialog.Builder(this);
-			builder.setMessage("Open Wireless & Network settings?")
+			builder.setMessage("Please check your Wireless & Network settings.")
 			       .setCancelable(false).setTitle("Network Error")
 			       .setPositiveButton("OK", new DialogInterface.OnClickListener() {
 			           public void onClick(DialogInterface dialog, int id) {
@@ -60,7 +62,7 @@ public class Main1Activity extends Activity {
 	}
 	
 	public void onClick2(View v){
-		startSimpleMATHActivity();
+		startSettingsActivity();
 	}
 	
 	public void onClick3(View v){
@@ -74,6 +76,11 @@ public class Main1Activity extends Activity {
     
     public void startAboutActivity()    {      
     Intent i = new Intent(this,AboutActivity.class);        
+    startActivity(i);
+    }	
+    
+    public void startSettingsActivity()    {      
+    Intent i = new Intent(this,SettingsActivity.class);        
     startActivity(i);
     }	
 }

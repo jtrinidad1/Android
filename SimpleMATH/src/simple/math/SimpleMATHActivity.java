@@ -14,16 +14,19 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.Random;
 
 import simple.math.R;
 
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.os.Bundle;
 import android.os.Vibrator;
+import android.preference.PreferenceManager;
 import android.speech.RecognizerIntent;
 import android.view.View;
 import android.widget.Button;
@@ -119,7 +122,7 @@ public class SimpleMATHActivity extends Activity {
 	    	if(checkDivision()){
 	    		number3 = number1 / number2;
 		        TextView tv = (TextView) findViewById(R.id.sma);
-		        tv.setText("What is " + number1 + " / " + number2 + " ?" );
+		        tv.setText("What is " + number1 + " ÷ " + number2 + " ?" );
 	    	}
 	    	else {
 	    		shuffleBitches();
@@ -131,47 +134,63 @@ public class SimpleMATHActivity extends Activity {
 	    	if(number1 % number2 == 0) {
 	    	return true;
 	    	}
-	    	else {return false;
-	    		}
+	    	else {return false;}
 	    	}
 	    
 		private void askQuestion(){
 			int num1;
-	    	for(int i=1;i<=4;i++)
+			SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
+			Boolean add = sp.getBoolean("add", true);
+			Boolean subtract = sp.getBoolean("subtract", true);
+			Boolean multiply = sp.getBoolean("multiply", true);
+			Boolean divide = sp.getBoolean("divide", true);
+			Boolean negate = sp.getBoolean("negate", true);
+			
+	    	/*for(int i=1;i<=4;i++)
 	        {
 	            numeros1.add(i);
 	        }
 	        
 	        //Yo Mama wants them bitches shuffled.  Do it, then grab the first and second number.  Assign them bitches!
 	        Collections.shuffle(numeros1);
-	        num1 = numeros1.get(0);
+	        num1 = numeros1.get(0);*/
+			Random shuffler = new Random();
+			num1 = shuffler.nextInt(4);
 	        switch (num1) {
-	        case 1: askAdditionQuestion();
+	        case 0: if (add)
+	        	{askAdditionQuestion();}
+	        else {askQuestion();}
 	        		break;
-	        case 2: askSubtractionQuestion();
+	        case 1: if (subtract){askSubtractionQuestion();}
+	        else {askQuestion();}
 	        		break;		
-	        case 3: askMultiplicationQuestion();
+	        case 2: if (multiply){askMultiplicationQuestion();}
+	        else {askQuestion();}
     				break;
-	        case 4: askDivisionQuestion();
+	        case 3: if (divide){askDivisionQuestion();}
+	        else {askQuestion();}
 	        		break;
 	        }
 	    }
 
 		private void shuffleBitches(){
 			//Add all integers between zero and ten into array
-	    	for(int i=0;i<=10;i++)
+	    	/*for(int i=0;i<=10;i++)
 	        {
 	            numeros.add(i);
-	        }
+	        }*/
 	        
 	        //Yo Mama wants them bitches shuffled.  Do it, then grab the first and second number.  Assign them bitches!
-	        Collections.shuffle(numeros);
+	        //Collections.shuffle(numeros);
 	        /*num1 = numeros.get(0);
 	        num2 = numeros.get(1);
             number1 = num1;
 	        number2 = num2;*/
-	        number1 = numeros.get(0);
-	        number2 = numeros.get(1);
+	        /*number1 = numeros.get(0);
+	        number2 = numeros.get(1);*/
+			Random shuffler = new Random();
+			number1 = shuffler.nextInt(11);
+			number2 = shuffler.nextInt(11);
 	    }
 
 		/**     * Handle the action of the button being clicked     */    

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+     android:title="Settings" >
+    
+    <CheckBoxPreference
+        android:title="Addition (+)"
+        android:key="add"
+        android:defaultValue="true">
+    </CheckBoxPreference>
+        
+    <CheckBoxPreference
+        android:title="Subtraction (-)"
+        android:key="subtract"
+        android:defaultValue="true">
+    </CheckBoxPreference>
+        
+    <CheckBoxPreference
+        android:title="Multiplication (x)"
+        android:key="multiply"
+        android:defaultValue="true">
+    </CheckBoxPreference>
+        
+    <CheckBoxPreference
+        android:title="Division (÷)"
+        android:key="divide"
+        android:defaultValue="true">
+    </CheckBoxPreference>
+    
+    <CheckBoxPreference android:summary="Allow negative answers?"
+        android:title="Negatives?"
+        android:key="negate"
+        android:defaultValue="true">
+    </CheckBoxPreference>
+
+</PreferenceScreen>
