@@ -29,6 +29,7 @@
     <CheckBoxPreference android:summary="Allow negative answers?"
         android:title="Negatives"
         android:key="negate"
+        android:dependency="subtract"
         android:defaultValue="true">
     </CheckBoxPreference>
 

@@ -59,6 +59,24 @@ public class SettingsActivity extends PreferenceActivity {
     }
     
     public void onBackPressed() {
+		/*SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
+		Boolean add = sp.getBoolean("add", true);
+		Boolean subtract = sp.getBoolean("subtract", true);
+		Boolean multiply = sp.getBoolean("multiply", true);
+		Boolean divide = sp.getBoolean("divide", true);
+		if (!add && !subtract && !multiply && !divide)
+		{
+			Context context = this;
+			CharSequence text = "You must select at least one operator.";
+			int duration = Toast.LENGTH_SHORT;
+			Toast toast = Toast.makeText(context, text, duration);
+			toast.setGravity(Gravity.BOTTOM, 0, 3);
+			toast.show();*/
+    	if (checkForOperators()) { 
+    		finish(); }
+		}
+    
+    public boolean checkForOperators() {
 		SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
 		Boolean add = sp.getBoolean("add", true);
 		Boolean subtract = sp.getBoolean("subtract", true);
@@ -72,9 +90,11 @@ public class SettingsActivity extends PreferenceActivity {
 			Toast toast = Toast.makeText(context, text, duration);
 			toast.setGravity(Gravity.BOTTOM, 0, 3);
 			toast.show();
-		}
-		else{finish();}
-		}
+			return false;
+    }
+		return true;
+    }
 
+			
 
 }
